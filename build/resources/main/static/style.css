@@ -1,0 +1,320 @@
+:root {
+    /* Design Tokens */
+    --font: 'Outfit', -apple-system, system-ui, sans-serif;
+    --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    
+    /* Light Theme (Default) */
+    --bg: #ffffff;
+    --bg-alt: #f8fafc;
+    --surface: #ffffff;
+    --text: #0f172a;
+    --text-muted: #64748b;
+    --border: #e2e8f0;
+    --accent: #000000;
+    --accent-fg: #ffffff;
+    --shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+body.dark {
+    --bg: #121212;
+    --bg-alt: #1a1a1a;
+    --surface: #1e1e1e;
+    --text: #f8fafc;
+    --text-muted: #94a3b8;
+    --border: #333333;
+    --accent: #ffffff;
+    --accent-fg: #121212;
+    --shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--font);
+    background-color: var(--bg);
+    color: var(--text);
+    transition: var(--transition);
+    overflow-x: hidden;
+    line-height: 1.5;
+}
+
+#app {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+/* Nav */
+nav {
+    height: 90px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 3rem;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-weight: 700;
+    font-size: 1.4rem;
+    letter-spacing: -0.02em;
+}
+
+.logo-dot {
+    width: 14px;
+    height: 14px;
+    background: var(--accent);
+    border-radius: 4px;
+}
+
+/* Main Content */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 4rem;
+}
+
+h1 {
+    font-size: 2.8rem;
+    font-weight: 700;
+    letter-spacing: -0.04em;
+    margin-bottom: 0.5rem;
+}
+
+header p {
+    color: var(--text-muted);
+    font-size: 1.1rem;
+}
+
+/* Metrics */
+.metrics {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+}
+
+.metric-card {
+    background: var(--bg-alt);
+    padding: 1.75rem;
+    border-radius: 20px;
+    border: 1px solid var(--border);
+}
+
+.metric-card .label {
+    display: block;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    letter-spacing: 0.05em;
+    margin-bottom: 0.5rem;
+}
+
+.metric-card .value {
+    font-size: 2.25rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+}
+
+/* Table */
+.data-grid {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 24px;
+    box-shadow: var(--shadow);
+    overflow: hidden;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th {
+    text-align: left;
+    padding: 1.25rem 2rem;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    border-bottom: 1px solid var(--border);
+    background: var(--bg-alt);
+}
+
+td {
+    padding: 1.5rem 2rem;
+    border-bottom: 1px solid var(--border);
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+tr:hover td {
+    background: var(--bg-alt);
+}
+
+/* Buttons */
+button {
+    cursor: pointer;
+    font-family: inherit;
+    transition: var(--transition);
+}
+
+.btn-primary {
+    background: var(--accent);
+    color: var(--accent-fg);
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 12px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 15px -3px rgba(0,0,0,0.2);
+}
+
+.btn-icon {
+    background: var(--bg-alt);
+    border: 1px solid var(--border);
+    padding: 0.75rem;
+    border-radius: 12px;
+}
+
+.btn-icon:hover {
+    border-color: var(--accent);
+}
+
+.btn-secondary {
+    background: transparent;
+    border: 1px solid var(--border);
+    color: var(--text);
+    padding: 0.75rem 1.5rem;
+    border-radius: 12px;
+    font-weight: 600;
+}
+
+.btn-secondary:hover {
+    background: var(--bg-alt);
+}
+
+/* Operations */
+.op-btns {
+    display: flex;
+    gap: 0.5rem;
+    justify-content: flex-end;
+}
+
+.op-btn {
+    background: none;
+    border: none;
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-decoration: underline;
+    text-underline-offset: 4px;
+}
+
+.op-btn:hover {
+    color: var(--text);
+}
+
+.op-btn.delete:hover {
+    color: #ef4444;
+}
+
+/* Modal */
+#modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.4);
+    backdrop-filter: blur(8px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    transition: opacity 0.3s;
+}
+
+.modal {
+    background: var(--surface);
+    width: 450px;
+    padding: 2.5rem;
+    border-radius: 32px;
+    box-shadow: 0 25px 50px -12px rgba(0,0,0,0.5);
+    border: 1px solid var(--border);
+    animation: slideUp 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes slideUp {
+    from { transform: translateY(20px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+.modal h2 {
+    margin-bottom: 2rem;
+    font-weight: 700;
+    font-size: 1.75rem;
+}
+
+.field {
+    margin-bottom: 1.5rem;
+}
+
+.field label {
+    display: block;
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+input[type="text"], input[type="number"] {
+    width: 100%;
+    padding: 0.875rem 1.25rem;
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    background: var(--bg-alt);
+    color: var(--text);
+    font-family: inherit;
+    font-size: 1rem;
+    outline: none;
+}
+
+input:focus {
+    border-color: var(--accent);
+}
+
+.modal-actions {
+    display: flex;
+    gap: 1rem;
+    margin-top: 2.5rem;
+}
+
+.modal-actions button {
+    flex: 1;
+}
+
+/* Theme Icons */
+.sun { display: none; }
+.moon { display: block; }
+body.dark .sun { display: block; }
+body.dark .moon { display: none; }
+
+.hidden { display: none !important; }
+
+@media (max-width: 768px) {
+    header { flex-direction: column; align-items: flex-start; gap: 2rem; }
+    .metrics { grid-template-columns: 1fr; }
+    h1 { font-size: 2.2rem; }
+}

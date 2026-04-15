@@ -1,0 +1,13 @@
+spring:
+  application:
+    name: product_boot
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/mydb
+    username: admin
+    password: 1234
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
